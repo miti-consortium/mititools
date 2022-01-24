@@ -28,7 +28,7 @@ This creates:
 A snapshot of the most recently generated version of artifacts 1-4 are committed as part of this repository. Item 5 is not.
 
 
-**Validation with FD**.
+# Validation with FD
 Frictionless Data (FD) is an extensive and modular system of high-level data management tools, with consistent bindings in Python, JavaScript, and the bash command-line.
 
 ```sh
@@ -48,8 +48,7 @@ Output:
 ...
 ```
 
-**Description with FD**.
-
+# Description with FD
 ```sh
 frictionless describe example_fd_package/cell.tsv
 ```
