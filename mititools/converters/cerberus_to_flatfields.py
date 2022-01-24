@@ -94,8 +94,12 @@ def convert(dicts):
         tablename = table_record['Name']
         if table_record['Primary key'] != 'value':
             fields = fields_table[fields_table['Table'] == tablename]
-            df = pd.DataFrame({field['Column name'] : [] for i, field in fields.iterrows()})
+            columns = sorted([field['Column name'] for i, field in fields.iterrows()])
+            df = pd.DataFrame({c : [] for c in columns})[columns]
             data_tables[tablename] = df
+
+    fields_table.sort_values(['Table', 'Column name'], inplace=True)
+    tables_table.sort_values('Name', inplace=True)
 
     return [fields_table, tables_table, data_tables, auxiliary_tables]
 

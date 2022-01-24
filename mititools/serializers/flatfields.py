@@ -27,8 +27,5 @@ def write_flatfields(fields_table, tables_table):
     if not exists(flatfields_path):
         mkdir(flatfields_path)
 
-    fields_table.sort_values(['Table', 'Column name'], inplace=True)
-    tables_table.sort_values('Name', inplace=True)
-
     fields_table.to_csv(join(flatfields_path, fields_filename), sep='\t', index=False)
     tables_table.to_csv(join(flatfields_path, tables_filename), sep='\t', index=False)
